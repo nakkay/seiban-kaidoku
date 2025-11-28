@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 星盤解読（ホロスコープ）
 
-## Getting Started
+西洋占星術を「日本語で」「仕組みから」「AI解説付きで」体験できるWebサービスです。
 
-First, run the development server:
+## 概要
+
+- **キャッチコピー**: 生まれた瞬間の星空が、あなたの運命を映します
+- **ターゲット**: 20〜30代女性、星座占いは見るがBirth Chartは初めて
+
+## 技術スタック
+
+| 項目 | 技術 |
+|------|------|
+| フロントエンド | Next.js 14 (App Router) + TypeScript + Tailwind CSS |
+| DB | Supabase |
+| 決済 | Stripe（都度課金のみ） |
+| AI（基本） | GPT-4o-mini |
+| AI（詳細） | GPT-4o |
+| 緯度経度変換 | OpenCage |
+| 天文計算 | Swiss Ephemeris（astronomia.js） |
+| ホスティング | Vercel |
+
+## セットアップ
+
+### 1. 環境変数の設定
+
+```bash
+cp .env.example .env.local
+```
+
+`.env.local` を編集して、各サービスのAPIキーを設定してください。
+
+### 2. 依存関係のインストール
+
+```bash
+npm install
+```
+
+### 3. 開発サーバーの起動
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) でアプリが起動します。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## プロジェクト構造
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── (main)/            # メインレイアウトグループ
+│   ├── result/[id]/       # 結果ページ
+│   └── api/               # APIルート
+│       ├── horoscope/     # ホロスコープ計算・取得
+│       ├── checkout/      # Stripe Checkout
+│       ├── webhook/       # Stripe Webhook
+│       └── og/            # OGP画像生成
+├── components/
+│   ├── ui/                # 汎用UIコンポーネント
+│   ├── layout/            # レイアウトコンポーネント
+│   └── features/          # 機能別コンポーネント
+├── lib/                   # ライブラリ・ユーティリティ
+├── hooks/                 # カスタムフック
+├── types/                 # TypeScript型定義
+├── constants/             # 定数定義
+└── utils/                 # ユーティリティ関数
+```
 
-## Learn More
+## 画面構成
 
-To learn more about Next.js, take a look at the following resources:
+1. **LP/入力フォーム**: 生年月日・出生時刻・出生地を入力
+2. **ローディング**: 星の配置を計算中の演出
+3. **基本解説（無料）**: 10項目の解説（GPT-4o-mini）
+4. **詳細解説（有料500円）**: 18項目の解説（GPT-4o）
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## デザインシステム
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **背景色**: #0a0e1a（深い紺）
+- **アクセント**: #4eb8a1（エメラルド）
+- **ゴールド**: #d4af55
+- **本文フォント**: Zen Kaku Gothic Antique
+- **装飾フォント**: Zen Antique
 
-## Deploy on Vercel
+## ライセンス
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 星盤解読 All rights reserved.

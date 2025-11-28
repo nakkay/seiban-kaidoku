@@ -1,27 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique&family=Zen+Kaku+Gothic+Antique:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ========================================
+   CSS Custom Properties (Design Tokens)
+   ======================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colors */
+  --color-bg: #0a0e1a;
+  --color-bg-elevated: #0f1424;
+  --color-card: linear-gradient(145deg, rgba(20, 28, 50, 0.9) 0%, rgba(12, 16, 30, 0.95) 100%);
+  --color-card-border: rgba(212, 175, 85, 0.15);
+  --color-card-border-hover: rgba(212, 175, 85, 0.35);
+  --color-accent: #4eb8a1;
+  --color-accent-subtle: rgba(78, 184, 161, 0.12);
+  --color-gold: #d4af55;
+  --color-gold-light: #e8c878;
+  --color-gold-subtle: rgba(212, 175, 85, 0.1);
+  --color-text: #f8f6f1;
+  --color-text-muted: rgba(248, 246, 241, 0.55);
+  --color-divider: rgba(212, 175, 85, 0.12);
+
+  /* Border Radius */
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Font Size (Major Third Scale 1.25) */
+  --text-xs: 0.64rem;
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.563rem;
+  --text-xl: 1.953rem;
+  --text-2xl: 2.441rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ========================================
+   Base Styles
+   ======================================== */
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-text font-base antialiased;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(212, 175, 85, 0.3);
+    color: var(--color-text);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 85, 0.3);
+    border-radius: var(--radius-full);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 85, 0.5);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* ========================================
+   Component Styles
+   ======================================== */
+@layer components {
+  /* Card */
+  .card {
+    background: var(--color-card);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    backdrop-filter: blur(20px);
+    transition: border-color 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: var(--color-card-border-hover);
+  }
+
+  /* Container */
+  .container {
+    @apply max-w-[1000px] mx-auto px-5;
+  }
+
+  /* Gold Button */
+  .btn-gold {
+    @apply inline-flex items-center justify-center;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+    color: var(--color-bg);
+    font-weight: 600;
+    padding: 14px 48px;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 30px rgba(212, 175, 85, 0.25);
+    letter-spacing: 0.1em;
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(212, 175, 85, 0.35);
+  }
+
+  /* Outline Button */
+  .btn-outline {
+    @apply inline-flex items-center gap-2;
+    padding: 12px 24px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-full);
+    color: var(--color-accent);
+    font-weight: 500;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    background: var(--color-accent-subtle);
+  }
+
+  /* Section Header */
+  .section-header {
+    @apply text-center mb-12;
+  }
+
+  .section-label {
+    @apply text-xs text-accent tracking-[0.2em] uppercase mb-3;
+  }
+
+  .section-title {
+    @apply font-serif text-lg font-medium tracking-wide;
+  }
+
+  .section-title em {
+    @apply not-italic text-gold;
+  }
+
+  /* Key Points Box */
+  .key-points {
+    @apply my-4 p-4;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border-left: 2px solid var(--color-gold);
+  }
+
+  .key-points-title {
+    @apply text-sm text-gold tracking-[0.1em] uppercase mb-2.5;
+  }
+
+  /* Tendency Badge */
+  .tendency {
+    @apply inline-block text-sm px-3 py-1 rounded-full mb-3;
+    background: var(--color-accent-subtle);
+    border: 1px solid rgba(78, 184, 161, 0.25);
+    color: var(--color-accent);
+  }
 }
 
+/* ========================================
+   Utility Styles
+   ======================================== */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Background Glow Effect */
+  .bg-glow {
+    @apply fixed inset-0 pointer-events-none overflow-hidden;
+  }
+
+  .bg-glow::before {
+    content: "";
+    @apply absolute;
+    top: -20%;
+    left: -10%;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(212, 175, 85, 0.06) 0%, transparent 70%);
+  }
+
+  .bg-glow::after {
+    content: "";
+    @apply absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 60%;
+    height: 50%;
+    background: radial-gradient(ellipse, rgba(78, 184, 161, 0.05) 0%, transparent 70%);
+  }
+
+  /* Gold text gradient */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-divider;
+  }
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes appear-planet {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-sun {
+  0%,
+  100% {
+    opacity: 0.8;
+    text-shadow: 0 0 30px rgba(212, 175, 85, 0.6);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 50px rgba(212, 175, 85, 0.9);
   }
 }
