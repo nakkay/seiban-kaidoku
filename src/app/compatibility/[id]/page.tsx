@@ -128,7 +128,7 @@ function ShareButtons({
 
     const shareUrls = {
       x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-      line: `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`,
+      line: `https://line.me/R/share?text=${encodeURIComponent(text + "\n" + url)}`,
       copy: "",
     };
 

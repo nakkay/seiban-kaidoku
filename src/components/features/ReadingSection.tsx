@@ -137,7 +137,7 @@ AIが読み解く、私だけのホロスコープ。あなたも試してみて
 
     const shareUrls = {
       x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-      line: `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
+      line: `https://line.me/R/share?text=${encodeURIComponent(text + "\n" + url)}`,
     };
 
     window.open(shareUrls[platform], "_blank", "width=600,height=400");
