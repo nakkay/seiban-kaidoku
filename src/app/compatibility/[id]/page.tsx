@@ -240,7 +240,7 @@ function LoadingScreen({
   const dotIndex = Math.floor(elapsedTime / 0.5) % 3;
   
   return (
-    <div className="min-h-screen flex items-center justify-center overflow-hidden relative bg-bg">
+    <div className="min-h-[100dvh] flex items-center justify-center overflow-hidden relative bg-bg">
       <Starfield />
       
       {/* 微かなグロー */}
