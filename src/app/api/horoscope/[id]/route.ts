@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import type { Database } from "@/types/database";
 
 // キャッシュを完全に無効化
 export const dynamic = "force-dynamic";
@@ -9,6 +8,9 @@ export const revalidate = 0;
 interface RouteParams {
   params: { id: string };
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ReadingRow = any;
 
 export async function GET(request: NextRequest, { params }: RouteParams) {
   try {
@@ -22,7 +24,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     }
 
     // 毎回新しいクライアントを作成してキャッシュを回避
-    const supabase = createClient<Database>(
+    const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!,
       {
@@ -34,12 +36,11 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     );
 
     // データベースから取得（キャッシュなし）
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { data: reading, error } = await supabase
+    const { data: reading } = await supabase
       .from("readings")
       .select("*")
       .eq("id", id)
-      .single();
+      .single<ReadingRow>();
 
     if (!reading) {
       return NextResponse.json(
