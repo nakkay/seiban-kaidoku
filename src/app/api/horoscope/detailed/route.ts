@@ -3,7 +3,6 @@ import { createClient } from "@supabase/supabase-js";
 import { addDetailedReading } from "@/lib/supabase";
 import { generateDetailedReading } from "@/lib/openai";
 import { formatChartDataForAI } from "@/lib/horoscope";
-import type { Database } from "@/types/database";
 
 // キャッシュを完全に無効化
 export const dynamic = "force-dynamic";
@@ -12,6 +11,9 @@ export const revalidate = 0;
 interface DetailedRequest {
   id: string;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ReadingRow = any;
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,7 +28,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 毎回新しいクライアントを作成してキャッシュを回避
-    const supabase = createClient<Database>(
+    const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!,
       {
@@ -42,7 +44,7 @@ export async function POST(request: NextRequest) {
       .from("readings")
       .select("*")
       .eq("id", id)
-      .single();
+      .single<ReadingRow>();
 
     if (error || !reading) {
       return NextResponse.json(
