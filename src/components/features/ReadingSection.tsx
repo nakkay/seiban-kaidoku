@@ -135,12 +135,14 @@ AIが読み解く、私だけのホロスコープ。あなたも試してみて
     const url = typeof window !== "undefined" ? window.location.href : "";
     const text = generateShareText();
 
-    const shareUrls = {
-      x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-      line: `https://line.me/R/share?text=${encodeURIComponent(text + "\n" + url)}`,
-    };
-
-    window.open(shareUrls[platform], "_blank", "width=600,height=400");
+    if (platform === "x") {
+      const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+      window.open(shareUrl, "_blank", "width=600,height=400");
+    } else if (platform === "line") {
+      // LINEはlocation.hrefで遷移（iOSでアプリを開くため）
+      const shareUrl = `https://line.me/R/share?text=${encodeURIComponent(text + "\n" + url)}`;
+      window.location.href = shareUrl;
+    }
   };
 
   const handleCopyUrl = async () => {

@@ -126,13 +126,14 @@ function ShareButtons({
       return;
     }
 
-    const shareUrls = {
-      x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-      line: `https://line.me/R/share?text=${encodeURIComponent(text + "\n" + url)}`,
-      copy: "",
-    };
-
-    window.open(shareUrls[platform], "_blank", "width=600,height=400");
+    if (platform === "x") {
+      const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+      window.open(shareUrl, "_blank", "width=600,height=400");
+    } else if (platform === "line") {
+      // LINEはlocation.hrefで遷移（iOSでアプリを開くため）
+      const shareUrl = `https://line.me/R/share?text=${encodeURIComponent(text + "\n" + url)}`;
+      window.location.href = shareUrl;
+    }
   };
 
   return (
