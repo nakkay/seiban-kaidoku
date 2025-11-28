@@ -123,7 +123,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
           <select
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-sm outline-none transition-all focus:border-gold focus:bg-white/[0.05]"
+            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-base outline-none transition-all focus:border-gold focus:bg-white/[0.05]"
           >
             {years.map((y) => (
               <option key={y} value={y}>
@@ -134,7 +134,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
           <select
             value={month}
             onChange={(e) => setMonth(e.target.value)}
-            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-sm outline-none transition-all focus:border-gold focus:bg-white/[0.05]"
+            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-base outline-none transition-all focus:border-gold focus:bg-white/[0.05]"
           >
             {months.map((m) => (
               <option key={m} value={m}>
@@ -145,7 +145,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
           <select
             value={day}
             onChange={(e) => setDay(e.target.value)}
-            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-sm outline-none transition-all focus:border-gold focus:bg-white/[0.05]"
+            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-base outline-none transition-all focus:border-gold focus:bg-white/[0.05]"
           >
             {days.map((d) => (
               <option key={d} value={d}>
@@ -166,7 +166,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
             value={hour}
             onChange={(e) => setHour(e.target.value)}
             disabled={isTimeUnknown}
-            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-sm outline-none transition-all focus:border-gold focus:bg-white/[0.05] disabled:opacity-50"
+            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-base outline-none transition-all focus:border-gold focus:bg-white/[0.05] disabled:opacity-50"
           >
             <option value="">時</option>
             {hours.map((h) => (
@@ -179,7 +179,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
             value={minute}
             onChange={(e) => setMinute(e.target.value)}
             disabled={isTimeUnknown}
-            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-sm outline-none transition-all focus:border-gold focus:bg-white/[0.05] disabled:opacity-50"
+            className="flex-1 bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-base outline-none transition-all focus:border-gold focus:bg-white/[0.05] disabled:opacity-50"
           >
             <option value="">分</option>
             {minutes.map((m) => (
@@ -239,7 +239,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
           <select
             value={birthPlace}
             onChange={(e) => setBirthPlace(e.target.value)}
-            className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-sm outline-none transition-all focus:border-gold focus:bg-white/[0.05]"
+            className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-base outline-none transition-all focus:border-gold focus:bg-white/[0.05]"
           >
             <option value="">都道府県を選択</option>
             {PREFECTURES.map((pref) => (
@@ -257,7 +257,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
                   value={latitude}
                   onChange={(e) => setLatitude(e.target.value)}
                   placeholder="緯度（例: 35.6762）"
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-sm outline-none transition-all focus:border-gold focus:bg-white/[0.05] placeholder:text-text-muted"
+                  className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-base outline-none transition-all focus:border-gold focus:bg-white/[0.05] placeholder:text-text-muted"
                 />
               </div>
               <div className="flex-1">
@@ -266,7 +266,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
                   value={longitude}
                   onChange={(e) => setLongitude(e.target.value)}
                   placeholder="経度（例: 139.6503）"
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-sm outline-none transition-all focus:border-gold focus:bg-white/[0.05] placeholder:text-text-muted"
+                  className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-3 px-3 text-text text-base outline-none transition-all focus:border-gold focus:bg-white/[0.05] placeholder:text-text-muted"
                 />
               </div>
             </div>
