@@ -287,15 +287,15 @@ export default function PremiumPage({ params }: PremiumPageProps) {
                 <p className="text-sm text-text-muted mb-2">
                   経過時間: <span className="text-gold">{elapsedTime}</span>秒
                 </p>
-                <p className="text-xs text-text-muted">
+                <p className="text-sm text-text-muted">
                   ※ 詳細解説の生成には<span className="text-accent">約1〜2分</span>かかります
                 </p>
               </div>
 
               {/* トリビア */}
               <div className="text-center">
-                <p className="text-xs text-gold/70 mb-2 tracking-wider">💫 豆知識</p>
-                <p className="text-xs text-text-muted leading-relaxed min-h-[2.5em]">
+                <p className="text-sm text-gold/70 mb-2 tracking-wider">💫 豆知識</p>
+                <p className="text-sm text-text-muted leading-relaxed min-h-[2.5em]">
                   {TRIVIA[triviaIndex]}
                 </p>
               </div>
@@ -304,7 +304,7 @@ export default function PremiumPage({ params }: PremiumPageProps) {
 
           {/* 生成中の項目 */}
           {isGenerating && (
-            <div className="text-xs text-text-muted/60 mt-4">
+            <div className="text-sm text-text-muted/60 mt-4">
               恋愛編・未来編を含む全18項目を生成中
             </div>
           )}
@@ -434,7 +434,7 @@ export default function PremiumPage({ params }: PremiumPageProps) {
             <h3 className="font-serif text-lg md:text-xl text-text mb-2">
               気になる相手との相性は？
             </h3>
-            <p className="text-xs md:text-sm text-text-muted">
+            <p className="text-sm text-text-muted">
               2人の星の配置から、恋愛相性を詳しく診断します
             </p>
           </div>
@@ -463,7 +463,7 @@ export default function PremiumPage({ params }: PremiumPageProps) {
                   {expandedCompatibilitySections.includes(section.title) && (
                     <ul className="p-3 pt-0 space-y-1">
                       {section.items.map((item) => (
-                        <li key={item} className="text-xs text-text-muted flex items-center gap-2">
+                        <li key={item} className="text-sm text-text-muted flex items-center gap-2">
                           <span className="text-pink/60">♡</span>
                           {item}
                         </li>
@@ -494,7 +494,7 @@ export default function PremiumPage({ params }: PremiumPageProps) {
                     {section.items.map((item) => (
                       <li
                         key={item}
-                        className="text-xs text-text-muted flex items-center gap-2"
+                        className="text-sm text-text-muted flex items-center gap-2"
                       >
                         <span className="text-pink/60">♡</span>
                         {item}

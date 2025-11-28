@@ -116,7 +116,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
     <form onSubmit={handleSubmit} className="space-y-7">
       {/* 生年月日 */}
       <div className="space-y-2.5">
-        <label className="block text-xs text-gold tracking-[0.1em] uppercase">
+        <label className="block text-sm text-gold tracking-[0.1em] uppercase">
           生年月日
         </label>
         <div className="flex gap-2.5">
@@ -158,7 +158,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
 
       {/* 出生時刻 */}
       <div className="space-y-2.5">
-        <label className="block text-xs text-gold tracking-[0.1em] uppercase">
+        <label className="block text-sm text-gold tracking-[0.1em] uppercase">
           出生時刻
         </label>
         <div className="flex items-center gap-2.5">
@@ -188,7 +188,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
               </option>
             ))}
           </select>
-          <label className="flex items-center gap-2 text-xs text-text-muted cursor-pointer whitespace-nowrap">
+          <label className="flex items-center gap-2 text-sm text-text-muted cursor-pointer whitespace-nowrap">
             <input
               type="checkbox"
               checked={isTimeUnknown}
@@ -198,14 +198,14 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
             わからない
           </label>
         </div>
-        <p className="text-xs text-text-muted pl-4 border-l border-divider">
+        <p className="text-sm text-text-muted pl-4 border-l border-divider">
           出生時刻がわかると、より正確な診断ができます。母子手帳に記載されていることが多いです。
         </p>
       </div>
 
       {/* 出生地 */}
       <div className="space-y-2.5">
-        <label className="block text-xs text-gold tracking-[0.1em] uppercase">
+        <label className="block text-sm text-gold tracking-[0.1em] uppercase">
           出生地
         </label>
         
@@ -214,7 +214,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
           <button
             type="button"
             onClick={() => setLocationMode("prefecture")}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs transition-all ${
+            className={`flex-1 py-2 px-3 rounded-lg text-sm transition-all ${
               locationMode === "prefecture"
                 ? "bg-gold/20 text-gold border border-gold/40"
                 : "bg-white/[0.03] text-text-muted border border-white/10 hover:border-white/20"
@@ -225,7 +225,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
           <button
             type="button"
             onClick={() => setLocationMode("coordinates")}
-            className={`flex-1 py-2 px-3 rounded-lg text-xs transition-all ${
+            className={`flex-1 py-2 px-3 rounded-lg text-sm transition-all ${
               locationMode === "coordinates"
                 ? "bg-gold/20 text-gold border border-gold/40"
                 : "bg-white/[0.03] text-text-muted border border-white/10 hover:border-white/20"
@@ -270,13 +270,13 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
                 />
               </div>
             </div>
-            <p className="text-xs text-accent">
+            <p className="text-sm text-accent">
               💡 Google Mapsで場所を右クリック → 座標をコピーできます
             </p>
           </div>
         )}
         
-        <p className="text-xs text-text-muted pl-4 border-l border-divider">
+        <p className="text-sm text-text-muted pl-4 border-l border-divider">
           {locationMode === "prefecture" 
             ? "生まれた場所によって、星の見え方（ハウス）が変わります。"
             : "緯度経度を指定すると、より正確なハウス計算ができます。"
@@ -292,7 +292,7 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
         <Button type="submit" size="lg" disabled={isLoading}>
           {isLoading ? "計算中..." : "無料で占う"}
         </Button>
-        <p className="mt-5 text-xs text-text-muted tracking-wider">
+        <p className="mt-5 text-sm text-text-muted tracking-wider">
           <span className="inline-flex items-center gap-1 mx-2.5">
             <span className="text-gold">✓</span> 約1分で結果表示
           </span>

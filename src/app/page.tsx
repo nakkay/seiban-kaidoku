@@ -137,20 +137,20 @@ export default function HomePage() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="bg-accent-subtle border border-accent/25 py-1.5 px-3.5 rounded-full text-xs text-accent tracking-wide"
+                    className="bg-accent-subtle border border-accent/25 py-1.5 px-3.5 rounded-full text-sm text-accent tracking-wide"
                   >
                     {item}
                   </li>
                 ))}
               </ul>
               <div className="flex gap-5 mt-4 pt-4 border-t border-divider">
-                <span className="text-xs text-text-muted">
+                <span className="text-sm text-text-muted">
                   <span className="text-gold mr-1">✓</span> 無料
                 </span>
-                <span className="text-xs text-text-muted">
+                <span className="text-sm text-text-muted">
                   <span className="text-gold mr-1">✓</span> 3分
                 </span>
-                <span className="text-xs text-text-muted">
+                <span className="text-sm text-text-muted">
                   <span className="text-gold mr-1">✓</span> 登録不要
                 </span>
               </div>
@@ -424,7 +424,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-2.5 flex-wrap mb-2.5">
                   <span className="font-serif text-md">太陽</span>
                   <span className="text-xs text-text-muted">Sun</span>
-                  <span className="text-[0.65rem] bg-gold/20 text-gold py-1 px-2.5 rounded-full tracking-wider">
+                  <span className="text-sm bg-gold/20 text-gold py-1 px-2.5 rounded-full tracking-wider">
                     外に見せる自分
                   </span>
                 </div>
@@ -447,7 +447,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-2.5 flex-wrap mb-2.5">
                   <span className="font-serif text-md">月</span>
                   <span className="text-xs text-text-muted">Moon</span>
-                  <span className="text-[0.65rem] bg-gold/20 text-gold py-1 px-2.5 rounded-full tracking-wider">
+                  <span className="text-sm bg-gold/20 text-gold py-1 px-2.5 rounded-full tracking-wider">
                     素の自分
                   </span>
                 </div>
@@ -514,7 +514,7 @@ export default function HomePage() {
                     {planet.keywords.map((kw) => (
                       <span
                         key={kw}
-                        className="text-[0.65rem] bg-accent-subtle text-accent py-1 px-2.5 rounded-full tracking-wide"
+                        className="text-sm bg-accent-subtle text-accent py-1 px-2.5 rounded-full tracking-wide"
                       >
                         {kw}
                       </span>
