@@ -144,13 +144,13 @@ export default function HomePage() {
                 ))}
               </ul>
               <div className="flex gap-5 mt-4 pt-4 border-t border-divider">
-                <span className="text-xs text-text-muted">
+                <span className="text-sm text-text-muted">
                   <span className="text-gold mr-1">✓</span> 無料
                 </span>
-                <span className="text-xs text-text-muted">
+                <span className="text-sm text-text-muted">
                   <span className="text-gold mr-1">✓</span> 約1分で結果表示
                 </span>
-                <span className="text-xs text-text-muted">
+                <span className="text-sm text-text-muted">
                   <span className="text-gold mr-1">✓</span> 登録不要
                 </span>
               </div>
