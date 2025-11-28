@@ -10,7 +10,7 @@ function getSupabase() {
   );
 }
 
-const DEFAULT_LIMIT = 3; // 1時間あたりの制限
+const DEFAULT_LIMIT = 5; // 1時間あたりの制限
 const DEFAULT_WINDOW_HOURS = 1;
 
 /**
