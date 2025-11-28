@@ -148,7 +148,7 @@ export default function HomePage() {
                   <span className="text-gold mr-1">✓</span> 無料
                 </span>
                 <span className="text-xs text-text-muted">
-                  <span className="text-gold mr-1">✓</span> 3分
+                  <span className="text-gold mr-1">✓</span> 約1分で結果表示
                 </span>
                 <span className="text-xs text-text-muted">
                   <span className="text-gold mr-1">✓</span> 登録不要
