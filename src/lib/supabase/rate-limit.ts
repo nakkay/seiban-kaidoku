@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createClient } from "@supabase/supabase-js";
 import { hashString } from "@/lib/utils";
 import type { RateLimitRow, RateLimitInsert, RateLimitUpdate } from "@/types/database";

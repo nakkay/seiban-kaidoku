@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createClient } from "@supabase/supabase-js";
 import type { CompatibilityInsert, CompatibilityRow } from "@/types/database";
 import type { CompatibilityReading } from "@/types/horoscope";
