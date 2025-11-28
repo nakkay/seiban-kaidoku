@@ -346,7 +346,7 @@ export default function HomePage() {
                     <span className="text-2xl text-gold">{item.icon}</span>
                   </div>
                   <h4 className="font-serif text-md mb-1">{item.label}</h4>
-                  <p className="text-md text-accent tracking-wider mb-2.5">
+                  <p className="font-serif text-md text-accent tracking-wider mb-2.5">
                     {item.role}
                   </p>
                   <p className="text-sm text-text leading-relaxed">
