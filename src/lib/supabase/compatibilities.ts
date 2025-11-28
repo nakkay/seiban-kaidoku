@@ -1,6 +1,13 @@
-import { createServiceClient } from "./server";
+import { createClient } from "@supabase/supabase-js";
 import type { CompatibilityInsert, CompatibilityRow } from "@/types/database";
 import type { CompatibilityReading } from "@/types/horoscope";
+
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 /**
  * 相性診断結果を保存
@@ -8,11 +15,12 @@ import type { CompatibilityReading } from "@/types/horoscope";
 export async function saveCompatibility(
   data: Omit<CompatibilityInsert, "id" | "created_at">
 ): Promise<{ id: string } | null> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data: result, error } = await supabase
     .from("compatibilities")
-    .insert(data as CompatibilityInsert)
+    .insert(data as any)
     .select("id")
     .single();
 
@@ -30,7 +38,7 @@ export async function saveCompatibility(
 export async function getCompatibilityById(
   id: string
 ): Promise<CompatibilityRow | null> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
 
   const { data, error } = await supabase
     .from("compatibilities")
@@ -50,11 +58,12 @@ export async function getCompatibilityById(
  * 相性診断の決済状態を更新
  */
 export async function markCompatibilityAsPaid(id: string): Promise<boolean> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { error } = await supabase
     .from("compatibilities")
-    .update({ is_paid: true } as never)
+    .update({ is_paid: true } as any)
     .eq("id", id);
 
   if (error) {
@@ -74,15 +83,16 @@ export async function updateCompatibilityReading(
   score: number,
   catchphrase: string
 ): Promise<boolean> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { error } = await supabase
     .from("compatibilities")
     .update({
       compatibility_reading: compatibilityReading,
       score,
       catchphrase,
-    } as never)
+    } as any)
     .eq("id", id);
 
   if (error) {

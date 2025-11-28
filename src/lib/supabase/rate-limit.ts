@@ -1,6 +1,13 @@
-import { createServiceClient } from "./server";
+import { createClient } from "@supabase/supabase-js";
 import { hashString } from "@/lib/utils";
 import type { RateLimitRow, RateLimitInsert, RateLimitUpdate } from "@/types/database";
+
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 const DEFAULT_LIMIT = 5; // 1時間あたりの制限
 const DEFAULT_WINDOW_HOURS = 1;
@@ -17,7 +24,7 @@ export async function checkRateLimit(
   limit: number = DEFAULT_LIMIT,
   windowHours: number = DEFAULT_WINDOW_HOURS
 ): Promise<boolean> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
   
   // IPアドレスをハッシュ化（プライバシー保護）
   const ipHash = await hashString(ip);
@@ -49,9 +56,10 @@ export async function checkRateLimit(
         window_start: new Date().toISOString(),
       };
       
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const { error: insertError } = await supabase
         .from("rate_limits")
-        .insert(insertData as never);
+        .insert(insertData as any);
 
       if (insertError) {
         console.error("Error creating rate limit record:", insertError);
@@ -69,9 +77,10 @@ export async function checkRateLimit(
         window_start: new Date().toISOString(),
       };
       
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const { error: updateError } = await supabase
         .from("rate_limits")
-        .update(updateData as never)
+        .update(updateData as any)
         .eq("ip_hash", ipHash);
 
       if (updateError) {
@@ -91,9 +100,10 @@ export async function checkRateLimit(
       count: existingRecord.count + 1,
     };
     
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { error: incrementError } = await supabase
       .from("rate_limits")
-      .update(incrementData as never)
+      .update(incrementData as any)
       .eq("ip_hash", ipHash);
 
     if (incrementError) {
@@ -116,7 +126,7 @@ export async function getRateLimitStatus(ip: string): Promise<{
   remaining: number;
   resetAt: Date;
 } | null> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
   
   const ipHash = await hashString(ip);
   

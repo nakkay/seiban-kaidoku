@@ -1,15 +1,23 @@
-import { createServiceClient } from "./server";
+import { createClient } from "@supabase/supabase-js";
 import type { ReadingInsert, ReadingUpdate, ReadingRow } from "@/types/database";
+
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 /**
  * 新しい結果を保存
  */
 export async function createReading(data: ReadingInsert): Promise<ReadingRow | null> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data: reading, error } = await supabase
     .from("readings")
-    .insert(data as never)
+    .insert(data as any)
     .select()
     .single();
 
@@ -24,7 +32,7 @@ export async function createReading(data: ReadingInsert): Promise<ReadingRow | n
  * IDで結果を取得
  */
 export async function getReadingById(id: string): Promise<ReadingRow | null> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
   
   const { data: reading, error } = await supabase
     .from("readings")
@@ -46,11 +54,12 @@ export async function updateReading(
   id: string,
   data: ReadingUpdate
 ): Promise<ReadingRow | null> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data: reading, error } = await supabase
     .from("readings")
-    .update(data as never)
+    .update(data as any)
     .eq("id", id)
     .select()
     .single();
@@ -66,11 +75,12 @@ export async function updateReading(
  * 支払い済みに更新
  */
 export async function markReadingAsPaid(id: string): Promise<boolean> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { error } = await supabase
     .from("readings")
-    .update({ is_paid: true } as never)
+    .update({ is_paid: true } as any)
     .eq("id", id);
 
   if (error) {
@@ -84,11 +94,12 @@ export async function markReadingAsPaid(id: string): Promise<boolean> {
  * 支払いステータスを更新（Webhook用エイリアス）
  */
 export async function updateReadingPaidStatus(id: string, isPaid: boolean): Promise<boolean> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { error } = await supabase
     .from("readings")
-    .update({ is_paid: isPaid } as never)
+    .update({ is_paid: isPaid } as any)
     .eq("id", id);
 
   if (error) {
@@ -105,11 +116,12 @@ export async function addDetailedReading(
   id: string,
   detailedReading: ReadingRow["detailed_reading"]
 ): Promise<boolean> {
-  const supabase = createServiceClient();
+  const supabase = getSupabase();
   
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { error } = await supabase
     .from("readings")
-    .update({ detailed_reading: detailedReading } as never)
+    .update({ detailed_reading: detailedReading } as any)
     .eq("id", id)
     .select()
     .single();
