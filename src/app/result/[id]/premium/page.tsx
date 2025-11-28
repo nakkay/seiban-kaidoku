@@ -85,6 +85,11 @@ export default function PremiumPage({ params }: PremiumPageProps) {
       prev.includes(title) ? prev.filter(t => t !== title) : [...prev, title]
     );
   };
+
+  // ページトップにスクロール
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   // ローディング用のstate
   const [messageIndex, setMessageIndex] = useState(0);

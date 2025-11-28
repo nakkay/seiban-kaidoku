@@ -64,6 +64,11 @@ export default function ResultPage({ params }: ResultPageProps) {
     );
   };
 
+  // ページトップにスクロール
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // 決済完了後のリダイレクト処理
   const paidParam = searchParams.get("paid");
 

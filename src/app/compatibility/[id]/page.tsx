@@ -309,6 +309,11 @@ export default function CompatibilityResultPage({ params }: PageProps) {
   const startTimeRef = useRef<number | null>(null);
   const hasStartedRef = useRef(false);
 
+  // ページトップにスクロール
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // ローディング中かどうか
   const isLoading = !data || !data.reading;
 
