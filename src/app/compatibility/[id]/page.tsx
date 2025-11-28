@@ -299,6 +299,7 @@ function LoadingScreen({
 
 export default function CompatibilityResultPage({ params }: PageProps) {
   const { id } = params;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
   const [elapsedTime, setElapsedTime] = useState(0);

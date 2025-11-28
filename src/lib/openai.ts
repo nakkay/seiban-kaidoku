@@ -354,8 +354,8 @@ export async function generateBasicReading(
  * 注意: 詳細解説はスタイル指示を使わず、常にニュートラルなトーンで生成
  */
 export async function generateDetailedReading(
-  chartData: string,
-  _style: ReadingStyle // スタイルは無視（詳細解説は常にニュートラル）
+  chartData: string
+  // スタイルは無視（詳細解説は常にニュートラル）
 ): Promise<Reading | null> {
   try {
     const response = await openai.chat.completions.create({

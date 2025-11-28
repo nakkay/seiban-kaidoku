@@ -3,7 +3,6 @@ import { createClient } from "@supabase/supabase-js";
 import { addDetailedReading } from "@/lib/supabase";
 import { generateDetailedReading } from "@/lib/openai";
 import { formatChartDataForAI } from "@/lib/horoscope";
-import type { ReadingStyle } from "@/types";
 import type { Database } from "@/types/database";
 
 // キャッシュを完全に無効化
@@ -71,10 +70,7 @@ export async function POST(request: NextRequest) {
     const chartText = formatChartDataForAI(reading.chart_data);
 
     // 詳細解説を生成
-    const detailedReading = await generateDetailedReading(
-      chartText,
-      reading.style as ReadingStyle
-    );
+    const detailedReading = await generateDetailedReading(chartText);
 
     if (!detailedReading) {
       return NextResponse.json(
