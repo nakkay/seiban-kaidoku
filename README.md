@@ -85,3 +85,4 @@ src/
 ## ライセンス
 
 © 2025 星盤解読 All rights reserved.
+
