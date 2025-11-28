@@ -335,7 +335,7 @@ export default function PremiumPage({ params }: PremiumPageProps) {
         <BackgroundGlow variant="centered" />
         <div className="text-center relative z-10">
           <div className="text-4xl text-red-400 mb-4">⚠</div>
-          <p className="text-text-muted mb-6">{error || "結果が見つかりませんでした"}</p>
+          <p className="text-text mb-6">{error || "結果が見つかりませんでした"}</p>
           <Link
             href={`/result/${params.id}`}
             className="bg-gold text-bg px-6 py-3 rounded-lg font-medium hover:bg-gold-light transition-colors"
@@ -434,7 +434,7 @@ export default function PremiumPage({ params }: PremiumPageProps) {
             <h3 className="font-serif text-lg md:text-xl text-text mb-2">
               気になる相手との相性は？
             </h3>
-            <p className="text-sm text-text-muted">
+            <p className="text-sm text-text">
               2人の星の配置から、恋愛相性を詳しく診断します
             </p>
           </div>

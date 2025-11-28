@@ -169,7 +169,7 @@ export default function HomePage() {
             <h2 className="font-serif text-lg tracking-wide">
               一般的な星座占いとの<em className="not-italic text-gold">違い</em>
             </h2>
-            <p className="mt-3 text-sm text-text-muted">
+            <p className="mt-3 text-sm text-text">
               テレビや雑誌の「星座占い」とは、精度がまったく異なります
             </p>
           </div>
@@ -219,7 +219,7 @@ export default function HomePage() {
             <h2 className="font-serif text-lg tracking-wide">
               お好みの<em className="not-italic text-gold">解説スタイル</em>
             </h2>
-            <p className="mt-3 text-sm text-text-muted">
+            <p className="mt-3 text-sm text-text">
               同じ結果でも、伝え方で印象は変わります。お好みのスタイルをお選びください（結果に反映されます）
             </p>
           </div>
@@ -307,7 +307,7 @@ export default function HomePage() {
             <h2 className="font-serif text-lg tracking-wide">
               ホロスコープの<em className="not-italic text-gold">読み方</em>
             </h2>
-            <p className="mt-3 text-sm text-text-muted">
+            <p className="mt-3 text-sm text-text">
               4つの要素の組み合わせで、あなたの物語が浮かび上がります
             </p>
           </div>
@@ -349,7 +349,7 @@ export default function HomePage() {
                   <p className="text-md text-accent tracking-wider mb-2.5">
                     {item.role}
                   </p>
-                  <p className="text-sm text-text-muted leading-relaxed">
+                  <p className="text-sm text-text leading-relaxed">
                     {item.desc}
                   </p>
                 </Card>
@@ -405,7 +405,7 @@ export default function HomePage() {
             <h2 className="font-serif text-lg tracking-wide">
               7つの惑星が象徴する<em className="not-italic text-gold">もの</em>
             </h2>
-            <p className="mt-3 text-sm text-text-muted">
+            <p className="mt-3 text-sm text-text">
               それぞれの惑星は、あなたの心の中にある異なる側面を映し出します
             </p>
           </div>

@@ -248,7 +248,7 @@ export default function LoadingPage() {
               <div className="font-serif text-md text-red-400 tracking-[0.1em] mb-4">
                 エラーが発生しました
               </div>
-              <p className="text-sm text-text-muted mb-6">{error}</p>
+              <p className="text-sm text-text mb-6">{error}</p>
               <button
                 onClick={() => router.push("/")}
                 className="bg-gold text-bg px-6 py-3 rounded-lg font-medium hover:bg-gold-light transition-colors"

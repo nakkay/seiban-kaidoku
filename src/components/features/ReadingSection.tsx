@@ -83,7 +83,7 @@ export function ReadingSection({
               {teaserType === "compatibility" ? "💕" : "💡"}
             </span>
             <div className="flex-1">
-              <p className="text-sm text-text-muted leading-relaxed mb-2">
+              <p className="text-sm text-text leading-relaxed mb-2">
                 {teaserText}
               </p>
               {teaserType === "compatibility" ? (
@@ -214,7 +214,7 @@ export function CTACard({ variant = "main", onPurchase, isLoading = false }: CTA
         <h3 className="font-serif text-lg text-gold-light mb-2">
           詳細解説を見る<span className="font-base" style={{ fontSize: "13px" }}>（500円）</span>
         </h3>
-        <p className="text-sm text-text-muted mb-4">
+        <p className="text-sm text-text mb-4">
           恋愛編・未来編を含む全18項目
         </p>
         <button
@@ -247,7 +247,7 @@ export function CTACard({ variant = "main", onPurchase, isLoading = false }: CTA
         <h3 className="font-serif text-lg md:text-xl mb-2">
           詳細解説で、さらに深く自分を知る
         </h3>
-        <p className="text-sm text-text-muted">
+        <p className="text-sm text-text">
           より高精度なAIによる深い洞察を含む全18項目の解説
         </p>
       </div>
