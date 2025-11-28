@@ -160,7 +160,7 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
               <select
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
-                className="w-24 bg-bg border border-card-border rounded-lg px-3 py-2 text-text text-sm focus:border-gold focus:outline-none"
+                className="w-24 bg-bg border border-card-border rounded-lg px-3 py-3 text-text text-base focus:border-gold focus:outline-none"
               >
                 {years.map((y) => (
                   <option key={y} value={y}>{y}</option>
@@ -169,7 +169,7 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
               <select
                 value={month}
                 onChange={(e) => setMonth(e.target.value)}
-                className="w-20 bg-bg border border-card-border rounded-lg px-3 py-2 text-text text-sm focus:border-gold focus:outline-none"
+                className="w-20 bg-bg border border-card-border rounded-lg px-3 py-3 text-text text-base focus:border-gold focus:outline-none"
               >
                 {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
                   <option key={m} value={m}>{m}</option>
@@ -178,7 +178,7 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
               <select
                 value={day}
                 onChange={(e) => setDay(e.target.value)}
-                className="w-20 bg-bg border border-card-border rounded-lg px-3 py-2 text-text text-sm focus:border-gold focus:outline-none"
+                className="w-20 bg-bg border border-card-border rounded-lg px-3 py-3 text-text text-base focus:border-gold focus:outline-none"
               >
                 {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
                   <option key={d} value={d}>{d}</option>
@@ -195,7 +195,7 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
                 value={hour}
                 onChange={(e) => setHour(e.target.value)}
                 disabled={!isTimeKnown}
-                className="w-20 bg-bg border border-card-border rounded-lg px-3 py-2 text-text text-sm focus:border-gold focus:outline-none disabled:opacity-50"
+                className="w-20 bg-bg border border-card-border rounded-lg px-3 py-3 text-text text-base focus:border-gold focus:outline-none disabled:opacity-50"
               >
                 <option value="">時</option>
                 {Array.from({ length: 24 }, (_, i) => i).map((h) => (
@@ -207,7 +207,7 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
                 value={minute}
                 onChange={(e) => setMinute(e.target.value)}
                 disabled={!isTimeKnown}
-                className="w-20 bg-bg border border-card-border rounded-lg px-3 py-2 text-text text-sm focus:border-gold focus:outline-none disabled:opacity-50"
+                className="w-20 bg-bg border border-card-border rounded-lg px-3 py-3 text-text text-base focus:border-gold focus:outline-none disabled:opacity-50"
               >
                 <option value="">分</option>
                 {[0, 15, 30, 45].map((m) => (
@@ -262,7 +262,7 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
               <select
                 value={prefecture}
                 onChange={(e) => setPrefecture(e.target.value)}
-                className="w-full bg-bg border border-card-border rounded-lg px-3 py-2 text-text text-sm focus:border-gold focus:outline-none"
+                className="w-full bg-bg border border-card-border rounded-lg px-3 py-3 text-text text-base focus:border-gold focus:outline-none"
               >
                 {PREFECTURES.map((pref) => (
                   <option key={pref} value={pref}>{pref}</option>
@@ -277,7 +277,7 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
                     onChange={(e) => setLatitude(e.target.value)}
                     placeholder="緯度（例: 35.6762）"
                     step="0.0001"
-                    className="w-full bg-bg border border-card-border rounded-lg px-3 py-2 text-text text-sm focus:border-gold focus:outline-none"
+                    className="w-full bg-bg border border-card-border rounded-lg px-3 py-3 text-text text-base focus:border-gold focus:outline-none"
                   />
                 </div>
                 <div className="flex-1">
@@ -287,7 +287,7 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
                     onChange={(e) => setLongitude(e.target.value)}
                     placeholder="経度（例: 139.6503）"
                     step="0.0001"
-                    className="w-full bg-bg border border-card-border rounded-lg px-3 py-2 text-text text-sm focus:border-gold focus:outline-none"
+                    className="w-full bg-bg border border-card-border rounded-lg px-3 py-3 text-text text-base focus:border-gold focus:outline-none"
                   />
                 </div>
               </div>
