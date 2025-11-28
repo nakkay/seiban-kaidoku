@@ -18,17 +18,17 @@ export default function TokushohoPage() {
         <div className="space-y-8 max-w-2xl">
           <dl className="space-y-6">
             <div>
-              <dt className="text-xs text-text-muted mb-1">販売業者</dt>
+              <dt className="text-xs text-gold mb-1">販売業者</dt>
               <dd className="text-sm">OVER株式会社</dd>
             </div>
 
             <div>
-              <dt className="text-xs text-text-muted mb-1">所在地</dt>
+              <dt className="text-xs text-gold mb-1">所在地</dt>
               <dd className="text-sm">東京都渋谷区恵比寿西2丁目8番4号</dd>
             </div>
 
             <div>
-              <dt className="text-xs text-text-muted mb-1">連絡先</dt>
+              <dt className="text-xs text-gold mb-1">連絡先</dt>
               <dd className="text-sm">
                 メール：info@overrrr.com<br />
                 ※電話番号は請求があれば遅滞なく開示いたします
@@ -36,7 +36,7 @@ export default function TokushohoPage() {
             </div>
 
             <div>
-              <dt className="text-xs text-text-muted mb-1">販売価格</dt>
+              <dt className="text-xs text-gold mb-1">販売価格</dt>
               <dd className="text-sm">
                 詳細解説：500円（税込）<br />
                 相性診断：500円（税込）
@@ -44,22 +44,22 @@ export default function TokushohoPage() {
             </div>
 
             <div>
-              <dt className="text-xs text-text-muted mb-1">支払方法</dt>
+              <dt className="text-xs text-gold mb-1">支払方法</dt>
               <dd className="text-sm">クレジットカード（Stripe決済）</dd>
             </div>
 
             <div>
-              <dt className="text-xs text-text-muted mb-1">支払時期</dt>
+              <dt className="text-xs text-gold mb-1">支払時期</dt>
               <dd className="text-sm">購入時に即時決済</dd>
             </div>
 
             <div>
-              <dt className="text-xs text-text-muted mb-1">商品の引渡し時期</dt>
+              <dt className="text-xs text-gold mb-1">商品の引渡し時期</dt>
               <dd className="text-sm">決済完了後、即時にWeb上で閲覧可能</dd>
             </div>
 
             <div>
-              <dt className="text-xs text-text-muted mb-1">返品・キャンセル</dt>
+              <dt className="text-xs text-gold mb-1">返品・キャンセル</dt>
               <dd className="text-sm">
                 デジタルコンテンツという商品の性質上、提供後の返品・返金はお受けできません。
               </dd>
