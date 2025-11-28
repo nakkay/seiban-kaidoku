@@ -34,7 +34,8 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     );
 
     // データベースから取得（キャッシュなし）
-    const { data: reading, error: _error } = await supabase
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { data: reading, error } = await supabase
       .from("readings")
       .select("*")
       .eq("id", id)
