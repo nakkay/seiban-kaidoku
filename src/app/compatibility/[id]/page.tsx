@@ -209,7 +209,7 @@ function CompatibilitySectionCard({ section, index }: { section: CompatibilitySe
           </ul>
         </div>
 
-        <p className="text-base text-text opacity-95 leading-relaxed">
+        <p className="text-sm text-text opacity-95 leading-relaxed">
           {section.description}
         </p>
       </div>
@@ -281,14 +281,14 @@ function LoadingScreen({
         </div>
 
         {/* 経過時間と注釈 */}
-        <p className="text-sm text-text-muted/60 mb-8">
+        <p className="text-xs text-text-muted/60 mb-8">
           {elapsedTime}秒経過 ・ 1〜2分ほどかかります
         </p>
 
         {/* 豆知識 */}
         <div className="border-t border-divider/50 pt-6 w-full text-center">
           <p className="text-xs text-pink/60 tracking-wider mb-2">💡 TRIVIA</p>
-          <p className="text-sm text-text-muted/70 leading-relaxed">
+          <p className="text-xs text-text-muted/70 leading-relaxed">
             {TRIVIA[triviaIndex]}
           </p>
         </div>
@@ -622,7 +622,7 @@ export default function CompatibilityResultPage({ params }: PageProps) {
       </main>
 
       {/* フッター */}
-      <footer className="border-t border-divider py-8 text-center text-sm text-text-muted">
+      <footer className="border-t border-divider py-8 text-center text-xs text-text-muted">
         <p>© 2024 星盤解読 All Rights Reserved.</p>
       </footer>
     </div>

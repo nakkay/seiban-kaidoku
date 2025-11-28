@@ -113,7 +113,7 @@ export default function HomePage() {
                 Technology
               </p>
               <h3 className="font-serif text-md mb-2.5">AIが読み解く</h3>
-              <p className="text-base text-text leading-relaxed">
+              <p className="text-sm text-text leading-relaxed">
                 専門家でも難しいホロスコープの解釈を、AIがあなた専用にわかりやすく言語化します。
               </p>
             </Card>
@@ -144,13 +144,13 @@ export default function HomePage() {
                 ))}
               </ul>
               <div className="flex gap-5 mt-4 pt-4 border-t border-divider">
-                <span className="text-sm text-text-muted">
+                <span className="text-xs text-text-muted">
                   <span className="text-gold mr-1">✓</span> 無料
                 </span>
-                <span className="text-sm text-text-muted">
+                <span className="text-xs text-text-muted">
                   <span className="text-gold mr-1">✓</span> 3分
                 </span>
-                <span className="text-sm text-text-muted">
+                <span className="text-xs text-text-muted">
                   <span className="text-gold mr-1">✓</span> 登録不要
                 </span>
               </div>
@@ -181,7 +181,7 @@ export default function HomePage() {
               <h3 className="font-serif text-md mb-4 pb-4 border-b border-divider">
                 一般的な星座占い
               </h3>
-              <p className="text-base text-text leading-relaxed mb-3">
+              <p className="text-sm text-text leading-relaxed mb-3">
                 太陽の位置だけを見て、12パターンに分類。同じ誕生月の人は、全員が同じ結果になります。
               </p>
               <p className="text-sm text-text-muted bg-white/[0.03] p-3 rounded-lg border-l-2 border-divider">
@@ -198,7 +198,7 @@ export default function HomePage() {
               <h3 className="font-serif text-md mb-4 pb-4 border-b border-divider">
                 ホロスコープ
               </h3>
-              <p className="text-base text-text leading-relaxed mb-3">
+              <p className="text-sm text-text leading-relaxed mb-3">
                 太陽だけでなく、月・水星・金星などすべての惑星の位置を分析。生まれた日・時刻・場所によって、一人ひとり異なる結果に。
               </p>
               <p className="text-sm text-text-muted bg-white/[0.03] p-3 rounded-lg border-l-2 border-gold">
@@ -290,10 +290,10 @@ export default function HomePage() {
                 <br />
                 図にしたもの
               </h3>
-              <p className="text-base text-text leading-loose mb-3">
+              <p className="text-sm text-text leading-loose mb-3">
                 太陽・月・水星・金星・火星…といった天体が、あなたが生まれたその瞬間、どの位置にあったかを記録した「星空のスナップショット」。これがあなただけのホロスコープです。
               </p>
-              <p className="text-base text-text leading-loose">
+              <p className="text-sm text-text leading-loose">
                 同じ日に生まれても、時刻や場所が違えば星の配置は異なります。だからこそホロスコープは、一人ひとり違う「あなただけの人生の設計図」になるのです。
               </p>
             </div>
@@ -345,8 +345,8 @@ export default function HomePage() {
                   <div className="w-14 h-14 mx-auto mb-3.5 rounded-full bg-gradient-to-br from-gold/15 to-accent/10 border border-gold/30 flex items-center justify-center">
                     <span className="text-2xl text-gold">{item.icon}</span>
                   </div>
-                  <h4 className="font-serif text-base mb-1">{item.label}</h4>
-                  <p className="text-sm text-accent tracking-wider mb-2.5">
+                  <h4 className="font-serif text-md mb-1">{item.label}</h4>
+                  <p className="text-md text-accent tracking-wider mb-2.5">
                     {item.role}
                   </p>
                   <p className="text-sm text-text-muted leading-relaxed">
@@ -428,7 +428,7 @@ export default function HomePage() {
                     外に見せる自分
                   </span>
                 </div>
-                <p className="text-base text-text leading-relaxed">
+                <p className="text-sm text-text leading-relaxed">
                   あなたの<em className="not-italic text-gold-light">本質</em>
                   そのもの。「自分は何者か」「どう生きたいか」という核心的なアイデンティティ。一般的な星座占いの「あなたは◯◯座」は、この太陽のサインです。
                 </p>
@@ -451,7 +451,7 @@ export default function HomePage() {
                     素の自分
                   </span>
                 </div>
-                <p className="text-base text-text leading-relaxed">
+                <p className="text-sm text-text leading-relaxed">
                   あなたの<em className="not-italic text-gold-light">感情</em>と
                   <em className="not-italic text-gold-light">内面</em>
                   。安心できる環境、心が求めるもの、無意識の反応パターン。親しい人の前でだけ見せる顔、それが月の領域です。

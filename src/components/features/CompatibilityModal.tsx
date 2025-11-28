@@ -311,7 +311,7 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
             >
               {isSubmitting ? "処理中..." : "相性を診断する（500円）"}
             </button>
-            <p className="text-sm text-text-muted/60 mt-3">
+            <p className="text-xs text-text-muted/60 mt-3">
               税込 • Stripeによる安全な決済 • クレジットカード対応
             </p>
           </div>

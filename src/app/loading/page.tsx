@@ -283,19 +283,19 @@ export default function LoadingPage() {
 
               {/* 経過時間と目安 */}
               <div className="bg-white/5 rounded-xl p-4 mb-6 border border-white/10 w-[280px] mx-auto">
-                <p className="text-sm text-text-muted mb-2">
+                <p className="text-xs text-text-muted mb-2">
                   経過時間: <span className="text-gold">{formatTime(elapsedTime)}</span>
                 </p>
-                <p className="text-sm text-text-muted">
+                <p className="text-xs text-text-muted">
                   ※ AIによる解説生成に<span className="text-accent">約1分</span>かかります
                 </p>
               </div>
 
               {/* 豆知識 */}
               <div className="text-center">
-                <p className="text-sm text-gold/70 mb-2 tracking-wider">💫 豆知識</p>
+                <p className="text-xs text-gold/70 mb-2 tracking-wider">💫 豆知識</p>
                 <p
-                  className="text-sm text-text-muted leading-relaxed transition-opacity duration-300 min-h-[2.5em]"
+                  className="text-xs text-text-muted leading-relaxed transition-opacity duration-300 min-h-[2.5em]"
                   style={{ opacity: isTriviaTransitioning ? 0 : 1 }}
                 >
                   {trivia[triviaIndex]}

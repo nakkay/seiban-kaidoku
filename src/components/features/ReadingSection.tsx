@@ -68,7 +68,7 @@ export function ReadingSection({
         )}
 
         {/* Description */}
-        <p className="text-base text-text leading-loose">
+        <p className="text-sm text-text leading-loose">
           {section.description}
         </p>
 
@@ -271,7 +271,7 @@ export function CTACard({ variant = "main", onPurchase, isLoading = false }: CTA
               {expandedSections.includes(section.part) && (
                 <ul className="p-3 pt-0 space-y-1.5">
                   {section.items.map((item) => (
-                    <li key={item} className="text-sm text-text-muted flex items-center gap-2">
+                    <li key={item} className="text-xs text-text-muted flex items-center gap-2">
                       <span className="text-gold/60">✦</span>
                       {item}
                     </li>
@@ -297,7 +297,7 @@ export function CTACard({ variant = "main", onPurchase, isLoading = false }: CTA
                 {section.items.map((item) => (
                   <li
                     key={item}
-                    className="text-sm text-text-muted flex items-center gap-2"
+                    className="text-xs text-text-muted flex items-center gap-2"
                   >
                     <span className="text-gold/60">✦</span>
                     {item}
@@ -318,7 +318,7 @@ export function CTACard({ variant = "main", onPurchase, isLoading = false }: CTA
         >
           {buttonContent}
         </button>
-        <p className="text-sm text-text-muted/60 mt-4">
+        <p className="text-xs text-text-muted/60 mt-4">
           税込 • Stripeによる安全な決済 • クレジットカード対応
         </p>
       </div>

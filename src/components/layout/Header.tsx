@@ -27,7 +27,7 @@ export function Header({
             <span className="font-serif text-md text-gold tracking-[0.1em]">
               星盤解読
             </span>
-            <span className="text-sm text-text-muted tracking-wider">
+            <span className="text-xs text-text-muted tracking-wider">
               HOROSCOPE
             </span>
           </Link>

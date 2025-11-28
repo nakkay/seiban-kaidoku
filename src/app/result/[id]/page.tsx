@@ -288,7 +288,7 @@ export default function ResultPage({ params }: ResultPageProps) {
                   {expandedCompatibilitySections.includes(section.title) && (
                     <ul className="p-3 pt-0 space-y-1">
                       {section.items.map((item) => (
-                        <li key={item} className="text-sm text-text-muted flex items-center gap-2">
+                        <li key={item} className="text-xs text-text-muted flex items-center gap-2">
                           <span className="text-pink/60">♡</span>
                           {item}
                         </li>
@@ -319,7 +319,7 @@ export default function ResultPage({ params }: ResultPageProps) {
                     {section.items.map((item) => (
                       <li
                         key={item}
-                        className="text-sm text-text-muted flex items-center gap-2"
+                        className="text-xs text-text-muted flex items-center gap-2"
                       >
                         <span className="text-pink/60">♡</span>
                         {item}
