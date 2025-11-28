@@ -19,18 +19,18 @@ export default function TokushohoPage() {
           <dl className="space-y-6">
             <div>
               <dt className="text-xs text-text-muted mb-1">販売業者</dt>
-              <dd className="text-sm">株式会社BLUE MONDAY</dd>
+              <dd className="text-sm">OVER株式会社</dd>
             </div>
 
             <div>
               <dt className="text-xs text-text-muted mb-1">所在地</dt>
-              <dd className="text-sm">東京都中央区銀座1-12-4</dd>
+              <dd className="text-sm">東京都渋谷区恵比寿西2丁目8番4号</dd>
             </div>
 
             <div>
               <dt className="text-xs text-text-muted mb-1">連絡先</dt>
               <dd className="text-sm">
-                メール：info@bluemonday.jp<br />
+                メール：info@overrrr.com<br />
                 ※電話番号は請求があれば遅滞なく開示いたします
               </dd>
             </div>

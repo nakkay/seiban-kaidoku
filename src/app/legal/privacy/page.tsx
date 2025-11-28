@@ -68,7 +68,7 @@ export default function PrivacyPage() {
             <h2 className="text-base text-gold-light mb-3">6. お問い合わせ</h2>
             <p className="text-text-muted">
               プライバシーに関するお問い合わせは、以下までご連絡ください。<br />
-              メール：info@bluemonday.jp
+              メール：info@overrrr.com
             </p>
           </section>
 
