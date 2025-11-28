@@ -222,8 +222,8 @@ export default function HomePage() {
             <p className="mt-3 text-sm text-text-muted">
               同じ結果でも、伝え方で印象は変わります
             </p>
-            <p className="mt-4 text-base text-gold">
-              ↓ タップして選択してください
+            <p className="mt-4 text-sm text-gold/80">
+              お好みのスタイルを選んでください
             </p>
           </div>
 
@@ -349,7 +349,7 @@ export default function HomePage() {
                     <span className="text-2xl text-gold">{item.icon}</span>
                   </div>
                   <h4 className="font-serif text-base mb-1">{item.label}</h4>
-                  <p className="text-xs text-accent tracking-wider mb-2.5">
+                  <p className="text-sm text-accent tracking-wider mb-2.5">
                     {item.role}
                   </p>
                   <p className="text-xs text-text-muted leading-relaxed">
