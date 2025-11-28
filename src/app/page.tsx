@@ -90,16 +90,16 @@ export default function HomePage() {
                 }}
               />
               <div className="relative z-10">
-                <p className="inline-block text-xs text-gold tracking-[0.15em] uppercase pb-3 mb-5 border-b border-divider">
+                <p className="inline-block text-sm text-gold tracking-[0.15em] uppercase pb-3 mb-5 border-b border-divider">
                   西洋占星術 × AI — 日本語完全対応
                 </p>
-                <h1 className="font-serif text-[1.75rem] md:text-2xl leading-relaxed mb-4 tracking-wide">
+                <h1 className="font-serif text-[1.75rem] md:text-2xl leading-relaxed mb-4 tracking-wide text-white">
                   生まれた瞬間の星空が、
                   <br />
                   あなたの<em className="not-italic text-gold-light">運命</em>
                   を映します
                 </h1>
-                <p className="text-base leading-loose">
+                <p className="text-base leading-loose text-white">
                   出生日時と場所から、あなただけの星の配置を計算。
                   <br className="hidden md:block" />
                   AIが複雑なホロスコープを読み解き、わかりやすく解説します。
@@ -221,6 +221,9 @@ export default function HomePage() {
             </h2>
             <p className="mt-3 text-sm text-text-muted">
               同じ結果でも、伝え方で印象は変わります
+            </p>
+            <p className="mt-4 text-base text-gold">
+              ↓ タップして選択してください
             </p>
           </div>
 
