@@ -220,10 +220,7 @@ export default function HomePage() {
               お好みの<em className="not-italic text-gold">解説スタイル</em>
             </h2>
             <p className="mt-3 text-sm text-text-muted">
-              同じ結果でも、伝え方で印象は変わります
-            </p>
-            <p className="mt-4 text-sm text-gold/80">
-              お好みのスタイルを選んでください
+              同じ結果でも、伝え方で印象は変わります。お好みのスタイルを選んでください。
             </p>
           </div>
 
