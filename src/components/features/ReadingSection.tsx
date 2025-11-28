@@ -68,7 +68,7 @@ export function ReadingSection({
         )}
 
         {/* Description */}
-        <p className="text-sm text-text-muted leading-loose">
+        <p className="text-base text-text leading-loose">
           {section.description}
         </p>
 

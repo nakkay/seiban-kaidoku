@@ -209,7 +209,7 @@ function CompatibilitySectionCard({ section, index }: { section: CompatibilitySe
           </ul>
         </div>
 
-        <p className="text-sm text-text opacity-85 leading-relaxed">
+        <p className="text-base text-text opacity-95 leading-relaxed">
           {section.description}
         </p>
       </div>
