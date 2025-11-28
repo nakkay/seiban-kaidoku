@@ -27,8 +27,8 @@ const config: Config = {
         },
         // テキスト
         text: {
-          DEFAULT: "#f8f6f1",
-          muted: "rgba(248, 246, 241, 0.55)",
+          DEFAULT: "#ffffff",
+          muted: "rgba(255, 255, 255, 0.7)",
         },
         // ボーダー・区切り
         divider: "rgba(212, 175, 85, 0.12)",

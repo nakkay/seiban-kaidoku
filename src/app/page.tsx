@@ -93,13 +93,13 @@ export default function HomePage() {
                 <p className="inline-block text-sm text-gold tracking-[0.15em] uppercase pb-3 mb-5 border-b border-divider">
                   西洋占星術 × AI — 日本語完全対応
                 </p>
-                <h1 className="font-serif text-[1.75rem] md:text-2xl leading-relaxed mb-4 tracking-wide text-white">
+                <h1 className="font-serif text-[1.75rem] md:text-2xl leading-relaxed mb-4 tracking-wide">
                   生まれた瞬間の星空が、
                   <br />
                   あなたの<em className="not-italic text-gold-light">運命</em>
                   を映します
                 </h1>
-                <p className="text-base leading-loose text-white">
+                <p className="text-base leading-loose">
                   出生日時と場所から、あなただけの星の配置を計算。
                   <br className="hidden md:block" />
                   AIが複雑なホロスコープを読み解き、わかりやすく解説します。
