@@ -34,7 +34,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     );
 
     // データベースから取得（キャッシュなし）
-    const { data: reading } = await supabase
+    const { data: reading, error: _error } = await supabase
       .from("readings")
       .select("*")
       .eq("id", id)
