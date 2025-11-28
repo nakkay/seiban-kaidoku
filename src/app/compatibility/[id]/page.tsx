@@ -115,43 +115,49 @@ function ShareButtons({
     return `${firstLine}\n\n${secondLine}\n\n${hashtags}`;
   };
 
-  const handleShare = (platform: "x" | "line" | "copy") => {
-    const url = typeof window !== "undefined" ? window.location.href : "";
+  const getShareUrl = () => {
+    if (typeof window === "undefined") return "";
+    return window.location.href;
+  };
+
+  const getXShareUrl = () => {
+    const url = getShareUrl();
     const text = generateShareText();
+    return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+  };
 
-    if (platform === "copy") {
-      navigator.clipboard.writeText(`${text}\n${url}`);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-      return;
-    }
+  const getLineShareUrl = () => {
+    const url = getShareUrl();
+    const text = generateShareText();
+    return `https://line.me/R/share?text=${encodeURIComponent(text + "\n" + url)}`;
+  };
 
-    if (platform === "x") {
-      const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-      window.open(shareUrl, "_blank", "width=600,height=400");
-    } else if (platform === "line") {
-      // LINEはlocation.hrefで遷移（iOSでアプリを開くため）
-      const shareUrl = `https://line.me/R/share?text=${encodeURIComponent(text + "\n" + url)}`;
-      window.location.href = shareUrl;
-    }
+  const handleCopyUrl = () => {
+    const url = getShareUrl();
+    const text = generateShareText();
+    navigator.clipboard.writeText(`${text}\n${url}`);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <div className="flex justify-center gap-2.5 md:gap-3 flex-wrap">
-      <button
-        onClick={() => handleShare("x")}
+      <a
+        href={getXShareUrl()}
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-flex items-center gap-1.5 py-2.5 px-5 md:py-3 md:px-6 border border-accent rounded-full text-accent text-sm font-medium bg-transparent hover:bg-accent-subtle transition-all"
       >
         𝕏 でシェア
-      </button>
-      <button
-        onClick={() => handleShare("line")}
+      </a>
+      <a
+        href={getLineShareUrl()}
         className="inline-flex items-center gap-1.5 py-2.5 px-5 md:py-3 md:px-6 border border-accent rounded-full text-accent text-sm font-medium bg-transparent hover:bg-accent-subtle transition-all"
       >
         LINEでシェア
-      </button>
+      </a>
       <button
-        onClick={() => handleShare("copy")}
+        onClick={handleCopyUrl}
         className="inline-flex items-center gap-1.5 py-2.5 px-5 md:py-3 md:px-6 border border-accent rounded-full text-accent text-sm font-medium bg-transparent hover:bg-accent-subtle transition-all"
       >
         {copied ? "✓ コピー完了" : "🔗 URLコピー"}
