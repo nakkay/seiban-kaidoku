@@ -5,6 +5,14 @@ import { useRouter } from "next/navigation";
 import { Starfield } from "@/components/ui/Starfield";
 import { BackgroundGlow } from "@/components/ui/BackgroundGlow";
 
+// アプリ内ブラウザを検出
+const isInAppBrowser = () => {
+  if (typeof window === "undefined") return false;
+  const ua = navigator.userAgent || navigator.vendor;
+  // Facebook, Messenger, Instagram, LINE, Twitter, TikTok などのアプリ内ブラウザを検出
+  return /FBAN|FBAV|FB_IAB|FB4A|FBIOS|Instagram|Line|Twitter|KAKAOTALK|TikTok/i.test(ua);
+};
+
 // より多くのメッセージで待機時間を演出
 const messages = [
   "星の配置を計算しています",
@@ -38,8 +46,16 @@ export default function LoadingPage() {
   const [isTriviaTransitioning, setIsTriviaTransitioning] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [showInAppWarning, setShowInAppWarning] = useState(false);
   const messageRef = useRef<HTMLDivElement>(null);
   const hasCalledApi = useRef(false);
+
+  // アプリ内ブラウザの検出と警告表示
+  useEffect(() => {
+    if (isInAppBrowser()) {
+      setShowInAppWarning(true);
+    }
+  }, []);
 
   // 経過時間をカウント
   useEffect(() => {
@@ -267,6 +283,16 @@ export default function LoadingPage() {
             ✦
           </div>
         </div>
+
+        {/* アプリ内ブラウザ警告 */}
+        {showInAppWarning && !error && (
+          <div className="bg-gold/10 border border-gold/30 rounded-xl p-4 mb-6 w-[300px] mx-auto">
+            <p className="text-xs text-gold mb-2 font-medium">⚠️ アプリ内ブラウザを検出</p>
+            <p className="text-xs text-text-muted leading-relaxed">
+              正常に動作しない場合は、右上の「…」メニューから<span className="text-text">「Safari で開く」</span>または<span className="text-text">「ブラウザで開く」</span>をお試しください
+            </p>
+          </div>
+        )}
 
         {/* テキスト */}
         <div className="text-center w-full">
