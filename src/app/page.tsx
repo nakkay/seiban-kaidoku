@@ -75,7 +75,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr] gap-4">
             {/* Main Hero Card */}
             <div
-              className="md:row-span-2 rounded-xl p-7 min-h-[400px] flex flex-col justify-end relative overflow-hidden"
+              className="md:row-span-2 rounded-xl p-7 min-h-[500px] md:min-h-[400px] flex flex-col justify-end relative overflow-hidden"
               style={{
                 backgroundImage: `url('/main.png')`,
                 backgroundPosition: "center top",
