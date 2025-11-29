@@ -111,6 +111,19 @@ export default function LoadingPage() {
       // sessionStorageをクリア
       sessionStorage.removeItem("horoscopeFormData");
 
+      // OGP画像をプリロード（結果ページでの表示を高速化）
+      const ogImage = new Image();
+      ogImage.src = `/api/og/${result.id}`;
+      
+      // 画像のプリロードを待つ（最大3秒でタイムアウト）
+      await Promise.race([
+        new Promise<void>((resolve) => {
+          ogImage.onload = () => resolve();
+          ogImage.onerror = () => resolve(); // エラーでも続行
+        }),
+        new Promise<void>((resolve) => setTimeout(resolve, 3000)),
+      ]);
+
       // 結果ページへ遷移
       router.push(`/result/${result.id}`);
     } catch (err) {
