@@ -86,7 +86,7 @@ export default function HomePage() {
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  background: "rgba(10, 14, 26, 0.3)",
+                  background: "rgba(10, 14, 26, 0.2)",
                 }}
               />
               {/* 下部グラデーション */}
