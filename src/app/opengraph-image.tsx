@@ -11,6 +11,10 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  // Zen Antiqueフォントを読み込む
+  const fontPath = join(process.cwd(), "public", "fonts", "ZenAntique-Regular.ttf");
+  const fontData = await readFile(fontPath);
+
   // 背景画像を読み込む
   const bgPath = join(process.cwd(), "public", "bg", "fire.png");
   const bgData = await readFile(bgPath);
@@ -66,10 +70,10 @@ export default async function Image() {
           <img
             src={zodiacBase64}
             alt=""
-            width={280}
-            height={280}
+            width={420}
+            height={420}
             style={{
-              marginBottom: 24,
+              marginBottom: 36,
               opacity: 0.9,
             }}
           />
@@ -77,10 +81,10 @@ export default async function Image() {
           {/* タイトル */}
           <div
             style={{
-              fontSize: 56,
-              fontWeight: "bold",
+              fontSize: 84,
+              fontFamily: "ZenAntique",
               color: "#d4af55",
-              marginBottom: 16,
+              marginBottom: 24,
               letterSpacing: "0.1em",
             }}
           >
@@ -90,7 +94,7 @@ export default async function Image() {
           {/* サブタイトル */}
           <div
             style={{
-              fontSize: 24,
+              fontSize: 36,
               color: "rgba(255, 255, 255, 0.85)",
               letterSpacing: "0.15em",
             }}
@@ -102,6 +106,13 @@ export default async function Image() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: "ZenAntique",
+          data: fontData,
+          style: "normal",
+        },
+      ],
     }
   );
 }
