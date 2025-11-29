@@ -2,7 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "利用規約 - 星盤解読",
+  title: "利用規約",
 };
 
 export default function TermsPage() {

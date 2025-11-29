@@ -2,7 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "特定商取引法に基づく表記 - 星盤解読",
+  title: "特定商取引法に基づく表記",
 };
 
 export default function TokushohoPage() {
