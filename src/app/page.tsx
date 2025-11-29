@@ -82,6 +82,14 @@ export default function HomePage() {
                 backgroundSize: "cover",
               }}
             >
+{/* 全体を薄く暗くするオーバーレイ */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: "rgba(10, 14, 26, 0.3)",
+                }}
+              />
+              {/* 下部グラデーション */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
