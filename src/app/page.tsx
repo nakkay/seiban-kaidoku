@@ -77,7 +77,7 @@ export default function HomePage() {
             <div
               className="md:row-span-2 rounded-xl p-7 min-h-[400px] flex flex-col justify-end relative overflow-hidden"
               style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=1200&q=80')`,
+                backgroundImage: `url('/main.png')`,
                 backgroundPosition: "center top",
                 backgroundSize: "cover",
               }}
