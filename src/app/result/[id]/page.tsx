@@ -213,7 +213,7 @@ export default function ResultPage({ params }: ResultPageProps) {
         rightElement={
           <Link
             href="/"
-            className="text-sm text-text-muted hover:text-text transition-colors"
+            className="bg-gold-gradient text-bg text-xs font-semibold py-2 px-4 rounded-full shadow-gold hover:shadow-gold-hover hover:-translate-y-0.5 transition-all"
           >
             もう一度占う
           </Link>
