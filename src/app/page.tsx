@@ -81,11 +81,7 @@ export default function HomePage() {
               <img
                 src="/main.png"
                 alt=""
-                className="absolute inset-0 w-full h-full object-cover object-top md:object-cover"
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "center 20%",
-                }}
+                className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-auto max-w-none md:w-full md:h-full md:object-cover md:left-0 md:translate-x-0"
               />
               {/* 全体を薄く暗くするオーバーレイ */}
               <div
