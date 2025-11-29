@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/Button";
 import { READING_STYLES } from "@/constants";
+import { trackDiagnosisStart, trackStyleSelect } from "@/lib/gtm";
 import type { ReadingStyle } from "@/types";
 
 // 都道府県リスト
@@ -108,6 +109,9 @@ export function BirthDataForm({ onSubmit, isLoading = false }: BirthDataFormProp
       formData.latitude = parseFloat(latitude);
       formData.longitude = parseFloat(longitude);
     }
+
+    // GTMイベント送信
+    trackDiagnosisStart(style);
 
     onSubmit(formData);
   };
@@ -317,13 +321,18 @@ interface StyleSelectorProps {
 export function StyleSelector({ value, onChange }: StyleSelectorProps) {
   const styles = Object.entries(READING_STYLES) as [ReadingStyle, typeof READING_STYLES.praise][];
 
+  const handleStyleChange = (key: ReadingStyle) => {
+    trackStyleSelect(key);
+    onChange(key);
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {styles.map(([key, style]) => (
         <button
           key={key}
           type="button"
-          onClick={() => onChange(key)}
+          onClick={() => handleStyleChange(key)}
           className={`
             relative p-6 rounded-xl border transition-all duration-300 text-left
             ${

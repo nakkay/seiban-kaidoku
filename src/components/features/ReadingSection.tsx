@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackShare } from "@/lib/gtm";
 import type { ReadingSection as ReadingSectionType } from "@/types";
 
 interface ReadingSectionProps {
@@ -152,6 +153,7 @@ AIが読み解く、私だけのホロスコープ。あなたも試してみて
     const url = getShareUrl();
     try {
       await navigator.clipboard.writeText(url);
+      trackShare("copy");
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -165,12 +167,14 @@ AIが読み解く、私だけのホロスコープ。あなたも試してみて
         href={getXShareUrl()}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackShare("x")}
         className="inline-flex items-center gap-1.5 py-2.5 px-5 md:py-3 md:px-6 border border-accent rounded-full text-accent text-sm font-medium bg-transparent hover:bg-accent-subtle transition-all"
       >
         𝕏 でシェア
       </a>
       <a
         href={getLineShareUrl()}
+        onClick={() => trackShare("line")}
         className="inline-flex items-center gap-1.5 py-2.5 px-5 md:py-3 md:px-6 border border-accent rounded-full text-accent text-sm font-medium bg-transparent hover:bg-accent-subtle transition-all"
       >
         LINEでシェア

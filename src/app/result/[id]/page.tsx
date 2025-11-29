@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
@@ -14,6 +14,7 @@ import {
 import { CompatibilityModal } from "@/components/features/CompatibilityModal";
 import { Starfield } from "@/components/ui/Starfield";
 import { BackgroundGlow } from "@/components/ui/BackgroundGlow";
+import { trackDiagnosisComplete, trackPurchaseStart_Premium } from "@/lib/gtm";
 import type { Reading } from "@/types";
 
 // ティーザーを表示するセクションID
@@ -64,10 +65,21 @@ export default function ResultPage({ params }: ResultPageProps) {
     );
   };
 
+  // GTMイベント送信（一度だけ）
+  const hasTrackedRef = useRef(false);
+
   // ページトップにスクロール
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // 診断完了イベント送信
+  useEffect(() => {
+    if (reading && elementPattern && !hasTrackedRef.current) {
+      trackDiagnosisComplete(reading.hero.zodiacSign, elementPattern);
+      hasTrackedRef.current = true;
+    }
+  }, [reading, elementPattern]);
 
   // 決済完了後のリダイレクト処理
   const paidParam = searchParams.get("paid");
@@ -115,6 +127,9 @@ export default function ResultPage({ params }: ResultPageProps) {
   // 購入処理
   const handlePurchase = useCallback(async () => {
     if (isPurchasing) return;
+
+    // GTMイベント送信
+    trackPurchaseStart_Premium();
 
     setIsPurchasing(true);
     try {

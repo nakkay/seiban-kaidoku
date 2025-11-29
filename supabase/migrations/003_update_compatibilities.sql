@@ -17,3 +17,4 @@ DROP CONSTRAINT IF EXISTS compatibilities_score_check;
 ALTER TABLE compatibilities 
 ADD CONSTRAINT compatibilities_score_check CHECK (score >= 0 AND score <= 100);
 
+

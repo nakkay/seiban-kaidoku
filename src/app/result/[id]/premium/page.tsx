@@ -13,6 +13,7 @@ import {
 import { Starfield } from "@/components/ui/Starfield";
 import { BackgroundGlow } from "@/components/ui/BackgroundGlow";
 import { CompatibilityModal } from "@/components/features/CompatibilityModal";
+import { trackPurchaseComplete_Premium } from "@/lib/gtm";
 import type { Reading } from "@/types";
 
 // プレミアム解説生成中のメッセージ
@@ -86,10 +87,21 @@ export default function PremiumPage({ params }: PremiumPageProps) {
     );
   };
 
+  // GTMイベント送信（一度だけ）
+  const hasTrackedPurchaseRef = useRef(false);
+
   // ページトップにスクロール
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // 購入完了イベント送信
+  useEffect(() => {
+    if (detailedReading && !hasTrackedPurchaseRef.current) {
+      trackPurchaseComplete_Premium();
+      hasTrackedPurchaseRef.current = true;
+    }
+  }, [detailedReading]);
   
   // ローディング用のstate
   const [messageIndex, setMessageIndex] = useState(0);

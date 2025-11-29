@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Starfield } from "@/components/ui";
+import { trackPurchaseComplete_Compatibility, trackShare } from "@/lib/gtm";
 
 // ローディングメッセージ
 const LOADING_MESSAGES = [
@@ -136,6 +137,7 @@ function ShareButtons({
     const url = getShareUrl();
     const text = generateShareText();
     navigator.clipboard.writeText(`${text}\n${url}`);
+    trackShare("copy");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -146,12 +148,14 @@ function ShareButtons({
         href={getXShareUrl()}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackShare("x")}
         className="inline-flex items-center gap-1.5 py-2.5 px-5 md:py-3 md:px-6 border border-accent rounded-full text-accent text-sm font-medium bg-transparent hover:bg-accent-subtle transition-all"
       >
         𝕏 でシェア
       </a>
       <a
         href={getLineShareUrl()}
+        onClick={() => trackShare("line")}
         className="inline-flex items-center gap-1.5 py-2.5 px-5 md:py-3 md:px-6 border border-accent rounded-full text-accent text-sm font-medium bg-transparent hover:bg-accent-subtle transition-all"
       >
         LINEでシェア
@@ -315,11 +319,20 @@ export default function CompatibilityResultPage({ params }: PageProps) {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const startTimeRef = useRef<number | null>(null);
   const hasStartedRef = useRef(false);
+  const hasTrackedPurchaseRef = useRef(false);
 
   // ページトップにスクロール
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // 購入完了イベント送信
+  useEffect(() => {
+    if (data?.reading && !hasTrackedPurchaseRef.current) {
+      trackPurchaseComplete_Compatibility();
+      hasTrackedPurchaseRef.current = true;
+    }
+  }, [data]);
 
   // ローディング中かどうか
   const isLoading = !data || !data.reading;

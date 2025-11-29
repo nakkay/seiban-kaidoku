@@ -46,3 +46,4 @@ export function BackgroundGlow({ variant = "default" }: BackgroundGlowProps) {
   );
 }
 
+

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackPurchaseStart_Compatibility } from "@/lib/gtm";
 
 // 日本の都道府県リスト
 const PREFECTURES = [
@@ -39,6 +40,9 @@ export function CompatibilityModal({ isOpen, onClose, person1ReadingId }: Compat
 
   const handleSubmit = async () => {
     setError(null);
+
+    // GTMイベント送信
+    trackPurchaseStart_Compatibility();
 
     // バリデーション
     if (!year || !month || !day) {
