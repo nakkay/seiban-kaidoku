@@ -223,8 +223,8 @@ export default function ResultPage({ params }: ResultPageProps) {
       <div className="container relative z-10">
         {/* Style Badge */}
         {style && styleLabels[style] && (
-          <div className="flex justify-center mb-4">
-            <div className="inline-flex items-center gap-1.5 bg-card border border-card-border rounded-full py-1.5 px-4">
+          <div className="mt-4 mb-6">
+            <div className="inline-flex items-center gap-1.5 border-l-2 border-gold pl-3 py-1">
               <span className="text-sm">{styleLabels[style].icon}</span>
               <span className="text-xs text-gold font-medium">{styleLabels[style].label}</span>
             </div>
