@@ -24,6 +24,13 @@ const teaserSections: Record<number, { text: string; type: "premium" | "compatib
   7: { text: "詳細解説の【未来編】では、5年ごとの運気の流れや今年の運勢について詳しく解説します。", type: "premium" },
 };
 
+// スタイル表示名
+const styleLabels: Record<string, { label: string; icon: string }> = {
+  praise: { label: "褒めモード", icon: "✨" },
+  neutral: { label: "ニュートラル", icon: "☯️" },
+  strict: { label: "辛口モード", icon: "🔥" },
+};
+
 // element_patternから日本語タイトルを生成
 const elementPatternToTitle: Record<string, string> = {
   "fire": "火の刻印",
@@ -52,6 +59,7 @@ export default function ResultPage({ params }: ResultPageProps) {
   const searchParams = useSearchParams();
   const [reading, setReading] = useState<Reading | null>(null);
   const [elementPattern, setElementPattern] = useState<string | null>(null);
+  const [style, setStyle] = useState<string | null>(null);
   const [isPaid, setIsPaid] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isPurchasing, setIsPurchasing] = useState(false);
@@ -97,6 +105,7 @@ export default function ResultPage({ params }: ResultPageProps) {
 
         setReading(data.reading);
         setElementPattern(data.elementPattern);
+        setStyle(data.style || null);
         setIsPaid(data.isPaid || false);
 
         // 決済完了パラメータがある場合
@@ -212,6 +221,16 @@ export default function ResultPage({ params }: ResultPageProps) {
       />
 
       <div className="container relative z-10">
+        {/* Style Badge */}
+        {style && styleLabels[style] && (
+          <div className="flex justify-center mb-4">
+            <div className="inline-flex items-center gap-1.5 bg-card border border-card-border rounded-full py-1.5 px-4">
+              <span className="text-sm">{styleLabels[style].icon}</span>
+              <span className="text-xs text-gold font-medium">{styleLabels[style].label}</span>
+            </div>
+          </div>
+        )}
+
         {/* Hero Visual */}
         <HeroVisual
           zodiacSign={reading.hero.zodiacSign}

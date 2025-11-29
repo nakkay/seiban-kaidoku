@@ -55,6 +55,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       reading: reading.basic_reading,
       detailedReading: reading.detailed_reading,
       elementPattern: reading.element_pattern,
+      style: reading.style,
       isPaid: reading.is_paid,
       createdAt: reading.created_at,
     });
