@@ -82,11 +82,18 @@ export default function LoadingPage() {
 
     try {
       // sessionStorageからフォームデータを取得
-      const formDataStr = sessionStorage.getItem("horoscopeFormData");
+      let formDataStr: string | null = null;
+      try {
+        formDataStr = sessionStorage.getItem("horoscopeFormData");
+      } catch {
+        // sessionStorageが使えない場合（プライベートモードなど）
+        setError("ブラウザのストレージにアクセスできません。プライベートモードを解除してお試しください。");
+        return;
+      }
       
       if (!formDataStr) {
         // フォームデータがない場合はトップページへ戻る
-        router.push("/");
+        setError("フォームデータが見つかりません。トップページからやり直してください。");
         return;
       }
 
@@ -109,10 +116,13 @@ export default function LoadingPage() {
       }
 
       // sessionStorageをクリア
-      sessionStorage.removeItem("horoscopeFormData");
+      try {
+        sessionStorage.removeItem("horoscopeFormData");
+      } catch {
+        // 無視
+      }
 
       // OGP画像をプリロード（結果ページでの表示を高速化）
-      // バックグラウンドで実行し、待機しない
       try {
         const ogImage = new Image();
         ogImage.src = `/api/og/${result.id}`;
@@ -120,11 +130,19 @@ export default function LoadingPage() {
         // プリロード失敗しても続行
       }
 
-      // 結果ページへ遷移
-      router.push(`/result/${result.id}`);
+      // 結果ページへ遷移（失敗した場合はwindow.locationで強制遷移）
+      const targetUrl = `/result/${result.id}`;
+      router.push(targetUrl);
+      
+      // 3秒後にまだこのページにいたら強制遷移
+      setTimeout(() => {
+        if (window.location.pathname === "/loading") {
+          window.location.href = targetUrl;
+        }
+      }, 3000);
     } catch (err) {
       console.error("API error:", err);
-      setError("ネットワークエラーが発生しました。再度お試しください。");
+      setError("エラーが発生しました。再度お試しください。");
     }
   }, [router]);
 
