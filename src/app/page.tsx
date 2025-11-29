@@ -109,7 +109,7 @@ export default function HomePage() {
                   を映します
                 </h1>
                 <p className="text-base leading-loose">
-                  出生日時と場所から、あなただけの星の配置を計算。
+                  <span className="text-gold font-medium">619億通り</span>の星の配置から、あなただけの星盤を計算。
                   <br className="hidden md:block" />
                   AIが複雑なホロスコープを読み解き、わかりやすく解説します。
                 </p>
@@ -208,7 +208,7 @@ export default function HomePage() {
                 ホロスコープ
               </h3>
               <p className="text-sm text-text leading-relaxed mb-3">
-                太陽だけでなく、月・水星・金星などすべての惑星の位置を分析。生まれた日・時刻・場所によって、一人ひとり異なる結果に。
+                10個の惑星が12星座に配置される組み合わせは<span className="text-gold font-medium">619億通り</span>。生まれた日・時刻・場所から、一人ひとり異なる結果を導きます。
               </p>
               <p className="text-sm text-text-muted bg-white/[0.03] p-3 rounded-lg border-l-2 border-gold">
                 例：「同じ3月1日生まれでも、朝と夜では結果が変わる」

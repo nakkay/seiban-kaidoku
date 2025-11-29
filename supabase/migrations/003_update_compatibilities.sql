@@ -19,3 +19,4 @@ ADD CONSTRAINT compatibilities_score_check CHECK (score >= 0 AND score <= 100);
 
 
 
+
