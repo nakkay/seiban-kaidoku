@@ -33,10 +33,7 @@ export const metadata: Metadata = {
   authors: [{ name: "星盤解読" }],
   creator: "星盤解読",
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png", sizes: "32x32" },
-    ],
+    icon: "/icon.png",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
