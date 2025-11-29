@@ -224,9 +224,9 @@ export default function ResultPage({ params }: ResultPageProps) {
         {/* Style Badge */}
         {style && styleLabels[style] && (
           <div className="mt-4 mb-6">
-            <div className="inline-flex items-center gap-1.5 border-l-2 border-gold pl-3 py-1">
-              <span className="text-sm">{styleLabels[style].icon}</span>
-              <span className="text-xs text-gold font-medium">{styleLabels[style].label}</span>
+            <div className="inline-flex items-center gap-2 border-l-2 border-gold pl-3 py-1">
+              <span className="text-base">{styleLabels[style].icon}</span>
+              <span className="text-sm text-gold font-medium">{styleLabels[style].label}</span>
             </div>
           </div>
         )}

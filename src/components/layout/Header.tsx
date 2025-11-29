@@ -14,7 +14,7 @@ interface HeaderProps {
 export function Header({
   showCta = true,
   ctaText = "無料で占う",
-  ctaHref = "#form",
+  ctaHref = "#style",
   rightElement,
   badge,
 }: HeaderProps) {

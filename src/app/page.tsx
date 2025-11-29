@@ -210,7 +210,7 @@ export default function HomePage() {
       </section>
 
       {/* Style Section */}
-      <section className="py-20 relative z-10">
+      <section id="style" className="py-20 relative z-10">
         <div className="container">
           <div className="text-center mb-12">
             <p className="text-xs text-accent tracking-[0.2em] uppercase mb-3">
