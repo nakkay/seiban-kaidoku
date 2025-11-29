@@ -75,14 +75,19 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-[1.8fr_1fr] gap-4">
             {/* Main Hero Card */}
             <div
-              className="md:row-span-2 rounded-xl p-7 min-h-[500px] md:min-h-[400px] flex flex-col justify-end relative overflow-hidden"
-              style={{
-                backgroundImage: `url('/main.png')`,
-                backgroundPosition: "center top",
-                backgroundSize: "cover",
-              }}
+              className="md:row-span-2 rounded-xl p-7 min-h-[450px] md:min-h-[400px] flex flex-col justify-end relative overflow-hidden"
             >
-{/* 全体を薄く暗くするオーバーレイ */}
+              {/* 背景画像 */}
+              <img
+                src="/main.png"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover object-top md:object-cover"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center 20%",
+                }}
+              />
+              {/* 全体を薄く暗くするオーバーレイ */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
