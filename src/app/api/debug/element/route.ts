@@ -31,8 +31,8 @@ export async function POST(request: NextRequest) {
     const pointValues: Record<string, number> = {
       sun: 4,
       moon: 4,
-      asc: 4,
-      mc: 4,
+      asc: 1,  // 感受点は1点（惑星を重視）
+      mc: 1,   // 感受点は1点（惑星を重視）
       mercury: 3,
       venus: 3,
       mars: 3,
