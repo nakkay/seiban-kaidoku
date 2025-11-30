@@ -60,12 +60,14 @@ export default function ResultPage({ params }: ResultPageProps) {
   const [reading, setReading] = useState<Reading | null>(null);
   const [elementPattern, setElementPattern] = useState<string | null>(null);
   const [style, setStyle] = useState<string | null>(null);
+  const [chartText, setChartText] = useState<string | null>(null);
   const [isPaid, setIsPaid] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isPurchasing, setIsPurchasing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isCompatibilityModalOpen, setIsCompatibilityModalOpen] = useState(false);
   const [expandedCompatibilitySections, setExpandedCompatibilitySections] = useState<string[]>([]);
+  const [isCopied, setIsCopied] = useState(false);
   
   const toggleCompatibilitySection = (title: string) => {
     setExpandedCompatibilitySections(prev => 
@@ -106,6 +108,7 @@ export default function ResultPage({ params }: ResultPageProps) {
         setReading(data.reading);
         setElementPattern(data.elementPattern);
         setStyle(data.style || null);
+        setChartText(data.chartText || null);
         setIsPaid(data.isPaid || false);
 
         // 決済完了パラメータがある場合
@@ -390,6 +393,25 @@ export default function ResultPage({ params }: ResultPageProps) {
             catchphrase={reading.hero.catchphrase}
           />
         </div>
+
+        {/* Chart Data Copy (for advanced users) */}
+        {chartText && (
+          <div className="mt-12 mb-8 pt-6 border-t border-divider">
+            <p className="text-xs text-text-muted mb-2">
+              チャートデータ（他のAIで使用できます）
+            </p>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(chartText);
+                setIsCopied(true);
+                setTimeout(() => setIsCopied(false), 2000);
+              }}
+              className="text-xs text-text-muted hover:text-text transition-colors underline underline-offset-2"
+            >
+              {isCopied ? "コピーしました ✓" : "クリップボードにコピー"}
+            </button>
+          </div>
+        )}
       </div>
 
       <Footer />

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { formatChartDataForAI } from "@/lib/horoscope/formatter";
 
 // キャッシュを完全に無効化
 export const dynamic = "force-dynamic";
@@ -49,6 +50,11 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       );
     }
 
+    // チャートデータをテキスト形式に変換
+    const chartText = reading.chart_data 
+      ? formatChartDataForAI(reading.chart_data)
+      : null;
+
     // レスポンス
     return NextResponse.json({
       id: reading.id,
@@ -58,6 +64,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       style: reading.style,
       isPaid: reading.is_paid,
       createdAt: reading.created_at,
+      chartText,
     });
 
   } catch {
