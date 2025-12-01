@@ -71,8 +71,8 @@ export default async function Image() {
           <img
             src={zodiacBase64}
             alt=""
-            width={320}
-            height={320}
+            width={420}
+            height={420}
             style={{
               marginBottom: 24,
               opacity: 0.9,
