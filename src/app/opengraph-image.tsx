@@ -64,16 +64,17 @@ export default async function Image() {
             justifyContent: "center",
             position: "relative",
             zIndex: 10,
+            marginTop: -40,
           }}
         >
           {/* 星座イラスト */}
           <img
             src={zodiacBase64}
             alt=""
-            width={420}
-            height={420}
+            width={320}
+            height={320}
             style={{
-              marginBottom: 36,
+              marginBottom: 24,
               opacity: 0.9,
             }}
           />
@@ -84,8 +85,9 @@ export default async function Image() {
               fontSize: 84,
               fontFamily: "ZenAntique",
               color: "#d4af55",
-              marginBottom: 24,
+              marginBottom: 20,
               letterSpacing: "0.1em",
+              textShadow: "0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 24px rgba(0, 0, 0, 0.6)",
             }}
           >
             星盤解読
@@ -95,8 +97,9 @@ export default async function Image() {
           <div
             style={{
               fontSize: 36,
-              color: "rgba(255, 255, 255, 0.85)",
+              color: "rgba(255, 255, 255, 0.9)",
               letterSpacing: "0.15em",
+              textShadow: "0 2px 8px rgba(0, 0, 0, 0.7)",
             }}
           >
             西洋占星術 × AI
