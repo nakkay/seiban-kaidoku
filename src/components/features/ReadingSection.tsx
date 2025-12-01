@@ -122,14 +122,19 @@ export function ShareButtons({ zodiacSign, elementTitle, catchphrase }: ShareBut
 
   // シェア文言を生成
   const generateShareText = () => {
+    const baseHashtags = "#星盤解読 #619億分の1の私 #占い #ホロスコープ #西洋占星術 #星読み #星座";
+    const zodiacHashtag = zodiacSign ? ` #${zodiacSign}` : "";
+    
     if (zodiacSign && elementTitle && catchphrase) {
       return `【${zodiacSign} × ${elementTitle}】${catchphrase}
 
 AIが読み解く、私だけのホロスコープ。あなたも試してみて✨
 
-#星盤解読 #西洋占星術 #ホロスコープ`;
+${baseHashtags}${zodiacHashtag}`;
     }
-    return "AIが読み解く、私だけのホロスコープ。あなたも試してみて✨ #星盤解読 #西洋占星術 #ホロスコープ";
+    return `AIが読み解く、私だけのホロスコープ。あなたも試してみて✨
+
+${baseHashtags}`;
   };
 
   const getShareUrl = () => {
